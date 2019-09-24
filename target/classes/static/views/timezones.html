@@ -1,0 +1,35 @@
+<div ng-controller="TimezonesController">
+	<div class="form-group col-sm-6 col-sm-offset-3">
+		<label for="jmbg">Timezone name</label> <input name="timezoneName" id="timezoneName"
+			class="form-control" ng-model="timezoneName"
+		    required>
+	</div>
+
+	<div class="form-group col-sm-6 col-sm-offset-3">
+		<button class="btn btn-primary"
+			ng-click="findTimezone(timezoneName)">Find timezone</button>
+			<button class="btn btn-primary"			
+			ng-click="findAllTimezones()">Show all timezones</button>
+	</div>
+	
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Name of City</th>
+				<th>GMT Offset</th>
+				<th>Current time</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="timezone in filteredTimezones">
+				<td ng-click="openTimezoneDetails(timezone.id)">{{ timezone.name }}</td>
+				<td ng-click="openTimezoneDetails(timezone.id)">{{ timezone.nameOfCity }}</td>
+				<td ng-click="openTimezoneDetails(timezone.id)">{{ timezone.readableOffset }}</td>
+				<td ng-click="openTimezoneDetails(timezone.id)">{{ timezone.currentTime }}</td>
+				<td align="center"><button class="btn btn-primary" ng-click="openTimezoneDeletionModal(timezone.id)">Delete</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

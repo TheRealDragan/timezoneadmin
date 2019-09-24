@@ -1,0 +1,64 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petar.timezoneadmin.mappers.TimeZoneMapper">
+
+	<select id="findAllTimezones" resultMap="timeZone">
+		SELECT *
+		FROM timezone
+	</select>
+
+	<select id="findTimezonesByUserId" resultMap="timeZone">
+		SELECT *
+		FROM
+		timezone
+		WHERE userid = #{userId}
+	</select>
+
+	<select id="findById" resultMap="timeZone">
+		SELECT *
+		FROM timezone
+		WHERE id = #{id}
+	</select>
+
+	<select id="findbyNameAndUserId" resultMap="timeZone">
+		SELECT *
+		FROM timezone
+		WHERE name = #{param1}
+		AND userid = #{param2}
+	</select>
+
+	<insert id="createTimezone" parameterType="timeZone" flushCache="true"
+		useGeneratedKeys="true">
+		INSERT INTO timezone (
+		userid, name, name_of_city,
+		gmt_offset_in_minutes)
+		VALUES (
+		#{userId}, #{name}, #{nameOfCity}, 
+		#{gmtOffsetInMinutes}
+		)
+	</insert>
+
+	<update id="updateTimezone" parameterType="timeZone" flushCache="true">
+		UPDATE timezone
+		<set>
+			<if test="name != null">name=#{name},</if>
+			<if test="nameOfCity != null">name_of_city=#{nameOfCity},</if>
+			<if test="gmtOffsetInMinutes != null">gmt_offset_in_minutes=#{gmtOffsetInMinutes}</if>
+		</set>
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="deleteTimezone" flushCache="true">
+    DELETE from timezone 
+    	WHERE id = #{id}
+    </delete>
+
+	<resultMap id="timeZone" type="Timezone">
+		<id property="id" column="id" />
+		<result property="userId" column="userid" />
+		<result property="name" column="name" />
+		<result property="nameOfCity" column="name_of_city" />
+		<result property="gmtOffsetInMinutes" column="gmt_offset_in_minutes" />
+	</resultMap>
+</mapper>

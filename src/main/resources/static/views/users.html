@@ -1,0 +1,18 @@
+<div ng-controller="UsersController">
+<table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Role</th>
+             <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users">
+                <td ng-click="openUserDetails(user.id)">{{ user.username }}</td>
+                <td ng-click="openUserDetails(user.id)">{{ user.role }}</td>
+                <td align="center"><button class="btn btn-primary" ng-click="openUserDeletionModal(user.id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

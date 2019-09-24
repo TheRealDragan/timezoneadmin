@@ -1,0 +1,16 @@
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	<typeAliases>
+		<typeAlias type="com.petar.timezoneadmin.model.User" alias="User" />
+		<typeAlias type="com.petar.timezoneadmin.model.Timezone" alias="Timezone" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="db/mappers/UserMapper.xml" />
+		<mapper resource="db/mappers/TimeZoneMapper.xml" />
+	</mappers>
+</configuration>

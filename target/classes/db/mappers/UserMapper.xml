@@ -1,0 +1,53 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petar.timezoneadmin.mappers.UserMapper">
+
+    <select id="findByUsername" resultMap="user" flushCache="true">
+        SELECT *
+        FROM user            
+        WHERE username = #{username}
+    </select>
+    
+    <select id="findAllUsers" resultMap="user">
+        SELECT id, username, role
+        FROM user  
+    </select>
+    
+      <select id="findById" resultMap="user">
+        SELECT *
+        FROM user            
+        WHERE id = #{id}
+    </select>
+    
+    <insert id="createUser" parameterType="user" flushCache="true"
+	   useGeneratedKeys="true">
+		INSERT INTO user (
+		username, password, role)
+		VALUES (
+		#{username}, #{password}, #{role} 
+		)
+	</insert>
+	
+	<update id="updateUser" parameterType="user" flushCache="true">
+        UPDATE user
+        <set>
+      		<if test="username != null">username=#{username},</if>
+            <if test="password != null">password=#{password},</if>
+      		<if test="role != null">role=#{role},</if>
+    	</set>
+    	 WHERE id = #{id}
+    </update>
+    
+    <delete id="deleteUser" flushCache="true">
+    DELETE from user 
+    	WHERE id = #{id}
+    </delete>
+
+	<resultMap id="user" type="User">
+		<id property="id" column="id" />
+		<result property="username" column="username" />
+		<result property="password" column="password" />
+		<result property="role" column="role" />
+	</resultMap>
+</mapper>

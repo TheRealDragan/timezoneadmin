@@ -1,0 +1,33 @@
+<div ng-controller="UserController">
+
+    <form name="addUserForm" novalidate>
+       <div class="col-sm-12">
+            <div class="form-group col-sm-6">
+                <label for="username">User name</label>
+                <input name="username" id="username" class="form-control" ng-model="user.username"
+                       minlength="3" maxlength="20" required>
+                <p ng-show="addUserForm.username.$touched && addUserForm.username.$invalid"
+                   class="help-block error">The username needs to be between 3 and 20 characters.</p>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="form-control" ng-model="user.password"
+                       minlength="5" maxlength="15" ng-pattern="'\.*[0-9]+\.*'" ng-required='newUser'>
+                <p ng-show="addUserForm.password.$touched && addUserForm.password.$invalid"
+                   class="help-block error">The password needs to be between 5 and 15 characters and contain at least one numerical character</p>
+            </div>
+        </div>
+    
+        <div class="form-group col-sm-6 col-sm-offset-3">
+            <label for="role">Role</label>
+            <select id="role" name="role" class="form-control" ng-options="role as role for role in roles"
+                    ng-model="user.role"  required></select>
+            <p ng-show="addUserForm.role.$touched && addUserForm.role.$invalid" class="help-block error">Please, select a role</p>
+        </div>
+        <hr>
+        <div class="form-group col-sm-12">
+            <button class="btn btn-primary" ng-disabled="addUserForm.$invalid"
+            ng-click="addUser()">Submit</button>
+        </div>
+    </form>
+</div>

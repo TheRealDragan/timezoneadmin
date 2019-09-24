@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.js"></script>
+
+</head>
+<body ng-app="timezoneadmin">
+ <div class="container" ng-controller="MainController">
+  <div ng-if="admin_users || admin_timezones" ng-include="'header.html'"></div>
+  <div class="row">
+    <div class="row-sm-8" ng-view></div>
+  </div>
+</div> 
+
+
+<script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/config.js"></script>
+<script src="js/service/rest-clients.js"></script>
+<script src="js/controller/home-controller.js"></script>
+<script src="js/controller/modal-controller.js"></script>
+<script src="js/controller/main-controller.js"></script> 
+<script src="js/controller/users-controller.js"></script> 
+<script src="js/controller/user-controller.js"></script> 
+<script src="js/controller/timezones-controller.js"></script> 
+<script src="js/controller/timezone-controller.js"></script> 
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<div class="col-sm-4 col-sm-offset-4" ng-controller="HomeController">
+	<form name="loginForm">
+		<legend>Login</legend>
+		<div class="form-group">
+			<label for="username">Username:</label> <input name="username"
+				id="userName" class="form-control" ng-model="username"
+				placeholder="Username" required>
+			<p
+				ng-show="loginForm.username.$touched && loginForm.username.$invalid"
+				class="help-block error">Please enter a username</p>
+		</div>
+
+		<div class="form-group">
+			<label for="lozinka" class="control-label">Password</label> <input
+				type="password" name="password" id="password" class="form-control"
+				ng-model="password" placeholder="Password" required>
+			<p
+				ng-show="loginForm.password.$touched && loginForm.password.$invalid"
+				class="help-block error">Please enter a password</p>
+		</div>
+
+		<div class="form-group">
+			<button ng-click="login()" class="btn btn-primary">Login</button>
+			<button ng-click="openRegistrationModal()" class="btn btn-primary">Register</button>
+		</div>
+	</form>
+</div>

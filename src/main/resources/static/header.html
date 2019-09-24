@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul ng-if ="admin_users" class="nav navbar-nav cursor-pointer">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Users<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./#!/add-user">Add a new user</a></li>
+                        <li><a href="./#!/users">View users</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul ng-if="admin_timezones" class="nav navbar-nav cursor-pointer">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Timezones<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./#!add-timezone">Add a new timezone</a></li>
+                        <li><a href="./#!/timezones">View timezones</a></li>
+                    </ul>
+                </li>
+            </ul>     
+            <button type="button" class="btn btn-default navbar-btn pull-right" ng-click="logout()">Logout</button>
+        </div>
+    </div>
+</nav>

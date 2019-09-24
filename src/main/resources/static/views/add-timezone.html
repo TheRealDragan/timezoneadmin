@@ -1,0 +1,40 @@
+<div ng-controller="TimezoneController">
+
+    <form name="addTimezoneForm" novalidate>
+       <div class="col-sm-12">
+            <div class="form-group col-sm-6">
+                <label for="name">Timezone name</label>
+                <input name="name" id="name" class="form-control" ng-model="timezone.name"
+                       minlength="3" maxlength="20" required>
+                <p ng-show="addTimezoneForm.name.$touched && addTimezoneForm.name.$invalid"
+                   class="help-block error">The name needs to be between 3 and 20 characters.</p>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="lozinka">City name</label>
+                <input type="nameOfCity" name="nameOfCity" id="nameOfCity" class="form-control" ng-model="timezone.nameOfCity"
+                       minlength="3" maxlength="20"  ng-required='newtimezone'>
+                <p ng-show="addTimezoneForm.nameOfCity.$touched && addTimezoneForm.nameOfCity.$invalid"
+                   class="help-block error">The name of city must have between 3 and 20 characters</p>
+            </div>
+        </div>    
+         <div class="form-group col-sm-6">
+            <label for="hours">GMT offset in hours</label>
+            <select id="hours" name="hours" class="form-control" ng-options="possibleHour as possibleHour for possibleHour in possibleHours"
+                    ng-model="hours" required></select>
+            <p ng-show="addTimezoneForm.hours.$touched && addTimezoneForm.hours.$invalid" class="help-block error">Please, choose an offset in hours</p>
+        </div>
+
+        <div class="form-group col-sm-6">
+            <label for="minutes">GMT offset in minutes</label>
+            <select id="minutes" name="minutes" class="form-control" ng-options="possibleMinute as possibleMinute for possibleMinute in possibleMinutes"
+                   ng-model="minutes" required></select>
+    <p ng-show="addTimezoneForm.minutes.$touched && addTimezoneForm.minutes.$invalid" class="help-block error">Please, choose an offset in minutes</p>                   
+        </div>
+        <hr>
+        <div class="form-group col-sm-12">
+            <button class="btn btn-primary" ng-disabled="addTimezoneForm.$invalid"
+            ng-click="addTimezone()">Submit</button>
+        </div>
+        </div>
+    </form>
+</div>

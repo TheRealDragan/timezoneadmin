@@ -1,0 +1,18 @@
+<div class="modal-header">
+	<h3 class="modal-title" id="modal-title">Registration</h3>
+</div>
+<div class="modal-body" id="modal-body">
+	<div>
+		<input type="text" ng-model="$ctrl.jwtUser.username" /> <input
+			type="password" ng-model="$ctrl.jwtUser.password" />
+		<button class="btn btn-primary" ng-click="$ctrl.register()">Register</button>
+	   <p class="help-block success">The length of both the username and the password must be between 5 and 15 characters.</p>
+		
+		<p ng-if="$ctrl.registrationSuccessful" class="help-block success">You have successfully registered and can now login with your credentials.</p>
+		<p ng-if="$ctrl.duplicateUsername" class="help-block error">The username you are trying to register already exists..</p>
+	</div>
+
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="$ctrl.cancel()">Close window</button>
+</div>
